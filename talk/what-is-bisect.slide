@@ -1,0 +1,14 @@
+git bisect manual
+15 Oct 2019
+Tags: git, bisect
+
+I'll be here all week.
+
+* JK. Go look at the manual another time if you're interested! It's actually good.
+[[https://git-scm.com/docs/git-bisect]]
+
+Let's talk about why git bisect awesome
+[[git-bisect.slide#3][Back to the talk]]
+
+
+.image https://thesaurus.plus/img/synonyms/131/bisect.png

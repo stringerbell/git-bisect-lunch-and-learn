@@ -1,0 +1,66 @@
+git bisect
+git bisect is the best bug-crushing tool you've (ᵖʳᵒᵇᵃᵇˡʸ) never heard of.
+15 Oct 2019
+Tags: git, bisect
+
+Dann Stockton
+Software Engineer, Subsplash
+dstockton@subsplash.com
+https://dannstockton.com
+
+* What is git bisect?
+
+From the manual:
+
+[[what-is-bisect.slide#2][Link to the manual for git bisect]]
+
+* Question:
+
+Why should I use `bisect`?
+
+* Answers (with more questions?):
+
+- Do you wish there were a better way to hunt down bugs rather than manually searching through your codebase and commit history?
+- As a QA engineer, product manager, or CSR you'll be able to communicate more effectively about why and where bugs were introduced.
+- Do you find yourself at a loss of where to even start when a regression is introduced? Do you have to go ask the person you know who knows the person who wrote something related to what this particular bug sounds like it _might_ be caused by?
+- You want to become more familiar with the tools you're already using. You're a backend engineer, you're terrified of CSS, and you get assigned a ticket dealing with a visual bug, and you go manually searching to try and understand the context.
+- git bisect can help!
+
+* Question:
+
+Do you need a PhD to use it?
+
+* Answer:
+
+Not even close! 🎉🎊🥳️ You need at least three! (Just kidding.)
+
+* Why I love it
+
+- It's very simple to use.
+- I don't have to be familiar with the code I'm working on to find (most) bugs.
+- I can use `git` to narrow down *exactly* where a particular bug was introduced.
+- I can ask, "When did this particular _change_ happen?" (even if it's not a bug!)
+- After I find a bug using `bisect`, I'll usually write a ticket. Writing a ticket with a single commit hash attached to show where the regression happened helps save everyone time (and money!)
+
+* Example
+
+* Downsides / Caveats
+
+sometimes `bisect` can't help you very effectively. I've found `bisect` to be particularly hard to use when:
+
+*** It's hard/impossible to reproduce the bug locally
+*** lots of setup is needed
+*** lots of state change is needed (db, npm, tests)
+*** commit history is messy
+*** commits aren't focused on a single thing
+*** commits have a lot of changes in them
+*** you're dealing with other bugs at the same time that might affect or interact with your bug
+
+* Help make bisect even more useful (if you're writing software)
+
+- Keep Merge Requests focused. (Do one thing well! When possible, make many separate MRs for each concern.)
+- Squash and rebase your commits before merging into master.
+*** Keeping a linear git history where each commit corresponds to a feature or a bug fix not only looks and feels nice, it helps if the commit you land on when bisecting that introduced the regression is about one thing only.
+
+- Write detailed commit messages that get committed for your squashed/rebased Merge Request. Telling your colleagues _why_ your change was introduced beats telling _how_ things were changed. The _how_ and _what_ is what `diffs` are for.
+[[https://chris.beams.io/posts/git-commit/][git commit style guide (HIGHLY recommended reading)]]
